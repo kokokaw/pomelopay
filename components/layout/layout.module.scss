@@ -1,0 +1,17 @@
+.container {
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.containerBody {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+    padding: 40px 20px 20px;
+    @media (max-width: 600px) {
+        padding: 20px 10px 10px;
+    }
+}

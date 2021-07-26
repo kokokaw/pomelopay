@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+    zilliqa_app:
+        build:
+            context: .
+        command: prod
+        ports:
+            - "443:443"
+        networks:
+            - zilliqa
+        environment:
+            COUNTRY_CODE: ${COUNTRY_CODE}
+
+networks:
+    zilliqa:
+        name: zilliqa
+
