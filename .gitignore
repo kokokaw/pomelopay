@@ -1,0 +1,9 @@
+node_modules/
+.idea
+settings.json
+.DS_Store
+.cli/reports/
+yarn-error.log*
+**.env.json
+cypress/reports/
+.next/

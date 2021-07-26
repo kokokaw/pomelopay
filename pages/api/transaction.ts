@@ -87,7 +87,7 @@ export default function handler(
                 }
                 return String(value).toLowerCase().indexOf(String(search).toLowerCase()) >= 0
             })
-        }))
+        }));
     } else if (req.method === 'PUT') {
         const { id } = JSON.parse(req.body);
 
