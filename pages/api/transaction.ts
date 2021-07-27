@@ -77,17 +77,21 @@ export default function handler(
 ) {
     if (req.method === 'GET') {
         const { search } = req.query;
-        if (!search) res.status(200).json(mockTransactionData)
+        if (!search) {
+            res.status(200).json(mockTransactionData)
+        } else {
+            const filteredTransactions = mockTransactionData.filter((transaction: TransactionData) => {
+                return Object.keys(transaction).find((transactionKey: string) => {
+                    let value = transaction[transactionKey as keyof TransactionData];
+                    if (transactionKey === 'dateTime') {
+                        value = dateFormat(Number(value));
+                    }
+                    return String(value).toLowerCase().indexOf(String(search).toLowerCase()) >= 0
+                })
+            });
 
-        res.status(200).json(mockTransactionData.filter((transaction: TransactionData) => {
-            return Object.keys(transaction).find((transactionKey: string) => {
-                let value = transaction[transactionKey as keyof TransactionData];
-                if (transactionKey === 'dateTime') {
-                    value = dateFormat(Number(value));
-                }
-                return String(value).toLowerCase().indexOf(String(search).toLowerCase()) >= 0
-            })
-        }));
+            res.status(200).json(filteredTransactions);
+        }
     } else if (req.method === 'PUT') {
         const { id } = JSON.parse(req.body);
 
