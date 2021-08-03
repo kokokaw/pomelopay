@@ -1,3 +1,4 @@
+import React from 'react'
 import { render, screen, fireEvent } from 'tests/test-utils'
 import userEvent from '@testing-library/user-event'
 

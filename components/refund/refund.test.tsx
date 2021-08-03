@@ -1,3 +1,4 @@
+import React from 'react'
 import * as ReactRedux from 'react-redux'
 
 import { render, screen, fireEvent } from 'tests/test-utils'

@@ -7,3 +7,5 @@ yarn-error.log*
 **.env.json
 cypress/reports/
 .next/
+coverage/
+test-report.html
